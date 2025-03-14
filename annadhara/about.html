@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Annadhara</title>
+  <meta name="description" content="Learn more about Annadhara, our mission, and how we are working to reduce food waste and fight hunger.">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <!-- External CSS Files -->
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/about.css">
+  
+  <!-- Inline CSS for Additional Styling -->
+  <style>
+    /* Section Layout for About Content */
+    .section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin: 2rem 0;
+      justify-content: center;
+    }
+    .section-content {
+      flex: 1;
+      padding: 1rem;
+      max-width: 800px;
+    }
+    
+    /* Death Counter Styling */
+    .death-counter {
+      margin: 2rem 0;
+      padding: 1rem 1.5rem;
+      background-color: #f8d7da;
+      border-radius: 5px;
+      color: #721c24;
+      font-weight: bold;
+      font-size: 1.6rem;
+      text-align: center;
+    }
+    .death-counter h4 {
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+    .counter {
+      font-size: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="logo-container">
+        <a href="index.html" aria-label="Annadhara Home">
+          <img src="https://i.ibb.co/6Rp4gCVv/Annadhara-logo-with-green-effect-food-donation-and-helping-with-more-details-and-simplicity.jpg" alt="Annadhara Logo" style="width: 45px;">
+          <h1>Annadhara</h1>
+        </a>
+      </div>
+      <nav>
+        <div class="mobile-menu" aria-label="Toggle navigation">
+          <i class="fas fa-bars" aria-hidden="true"></i>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html"><i class="fas fa-home" aria-hidden="true"></i> Home</a></li>
+          <li><a href="donate.html"><i class="fas fa-hand-holding-heart" aria-hidden="true"></i> Donate</a></li>
+          <li><a href="recipients.html"><i class="fas fa-users" aria-hidden="true"></i> Recipients</a></li>
+          <li><a href="about.html" class="active"><i class="fas fa-info-circle" aria-hidden="true"></i> About</a></li>
+          <li><a href="contact.html"><i class="fas fa-envelope" aria-hidden="true"></i> Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Main Content: About Us -->
+  <main class="about">
+    <div class="container about-container">
+      <h2>About Annadhara</h2>
+      <p>At Annadhara, we are dedicated to reducing food waste and fighting hunger. Our mission is to connect surplus food donors with recipients in need, ensuring that no food goes to waste.</p>
+      
+      <div class="section">
+        <div class="section-content">
+          <h3>Our Mission</h3>
+          <p>We strive to create a sustainable food system where surplus food is redirected to those who need it most. We believe that everyone deserves access to nutritious food.</p>
+        </div>
+      </div>
+      
+      <div class="section">
+        <div class="section-content">
+          <h3>Our Vision</h3>
+          <p>We envision a world where food waste is minimized and hunger is eradicated. Through community engagement and innovation, we aim to foster a culture of sharing and sustainability.</p>
+        </div>
+      </div>
+      
+      <div class="section">
+        <div class="section-content">
+          <h3>Why We Started</h3>
+          <p>Our journey began with the realization that hunger affects millions worldwide. Inspired by the stories of those in need, we set out to create a platform to combat food waste and hunger.</p>
+        </div>
+      </div>
+      
+      <div class="section">
+        <div class="section-content">
+          <h3>The Impact of Hunger</h3>
+          <p>Hunger is more than a statistic—it affects real lives. Every year, countless families face the devastating effects of food insecurity, and we are committed to changing that narrative.</p>
+        </div>
+      </div>
+      
+      <!-- Death Counter Section -->
+      <div class="death-counter">
+        <h4>People Dying from Hunger Worldwide:</h4>
+        <div id="counter" class="counter">0</div>
+      </div>
+      
+      <div class="section">
+        <div class="section-content">
+          <h3>Get Involved</h3>
+          <p>Join us in our mission! Whether you want to donate food, volunteer your time, or spread the word, your action can help make a difference in the fight against hunger.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Annadhara. All rights reserved.</p>
+    </div>
+  </footer>
+  
+  <!-- JavaScript for Dynamic Active Menu & Mobile Toggle -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Set active state based on current page
+      const currentPage = window.location.pathname.split("/").pop() || 'index.html';
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
+          link.classList.add('active');
+          link.setAttribute('aria-current', 'page');
+        } else {
+          link.classList.remove('active');
+          link.removeAttribute('aria-current');
+        }
+      });
+      // Mobile menu toggle functionality
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const navLinks = document.querySelector('.nav-links');
+      mobileMenu.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+    });
+  </script>
+  
+  <!-- JavaScript to Simulate the Death Counter -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const counterElement = document.getElementById('counter');
+      let count = 0;
+      // Simulate an increasing counter every 2 seconds
+      setInterval(() => {
+        count++;
+        counterElement.textContent = count.toLocaleString();
+      }, 2000);
+    });
+  </script>
+  
+  <!-- External JavaScript Files (if needed) -->  
+  <script src="js/navigation.js"></script>
+  <script src="js/interactive.js"></script>
+</body>
+</html>
